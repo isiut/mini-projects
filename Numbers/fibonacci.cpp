@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+// Fibonacci with n elements
 std::vector<int> fibNth(int n)
 {
     std::vector<int> sequence = {1, 1};
@@ -13,12 +14,15 @@ std::vector<int> fibNth(int n)
     return sequence;
 }
 
-int main()
+// Fibonacci to a limit n
+std::vector<int> fibToN(int n)
 {
-    std::vector result = fibNth(10);
+    std::vector<int> sequence = {1, 1};
 
-    for (int e : result)
+    for (int i = 2; sequence[i - 1] + sequence[i - 2] <= n; i++)
     {
-        std::cout << e << "\n";
+        sequence.push_back(sequence[i - 1] + sequence[i - 2]);
     }
+
+    return sequence;
 }
